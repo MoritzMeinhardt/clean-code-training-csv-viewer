@@ -10,13 +10,9 @@ export class TableDataImportService {
   constructor() { }
 
   public static transformFileToHeadersAndDataEntries(file): {headers: string[], entries: string[][]} {
-    // load data
     TableDataImportService.inputFile = this.loadTableDataFromFile(file);
-    // split file into lines
     const textSplittedInLines = this.splitFileIntoLines(TableDataImportService.inputFile, '\n');
-    // seperate header from data
     const seperatedHeaderAndEntries = this.seperateHeaderFromEntries(textSplittedInLines);
-    // transform lines into entries
     const headers = this.transformLinesIntoEntries([seperatedHeaderAndEntries.header], ';')[0];
     const entries = this.transformLinesIntoEntries(seperatedHeaderAndEntries.entries, ';');
     return {headers, entries};
