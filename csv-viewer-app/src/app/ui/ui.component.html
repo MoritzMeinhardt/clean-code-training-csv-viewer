@@ -1,0 +1,9 @@
+<table class="d-flex">
+  <tr>
+    <th *ngFor="let header of headers">{{ header }}</th>
+  </tr>
+  <tr *ngFor="let row of entries">
+    <td *ngFor="let column of row"> {{ column }}</td>
+  </tr>
+</table>
+
